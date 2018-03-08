@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Connect mongodb
-mongoose.connect('mongodb://localhost/connect-pune', function(){
+mongoose.connect(keys.mongodb.dbURI, function(){
     console.log('Connected to mongodb');
 });
 

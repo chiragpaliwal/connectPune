@@ -13,12 +13,12 @@ router.get('/logout', function(req, res){
 
 //Auth with Google
 router.get('/google', passport.authenticate('google', {
-    scope: ['profile', ]
+    scope: ['profile']
 }));
 
 //calback route for google
-router.get('/google/redirect', function(req , res){
-    
+router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+    res.send('you reached the redirect URI');
 });
 
 module.exports = router;
