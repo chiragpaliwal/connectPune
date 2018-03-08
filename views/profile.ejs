@@ -1,5 +1,7 @@
 <% include partials/header.ejs %>
 <body>
     <% include partials/nav.ejs %>
+    <h2>Welcome <%= user.username %>,</h2>
+    <img src="<%= user.thumbnail %>" alt="Thumbnail">
 </body>
 <% include partials/footer.ejs %>
