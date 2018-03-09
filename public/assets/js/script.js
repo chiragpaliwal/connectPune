@@ -1,0 +1,24 @@
+$('.featlist>li:first-of-type').click(function(){
+  $('.regcomp').hide("");
+  $('.checkstatus').hide("");
+  $('.feedbackpg').hide("");
+  $('.home').show("");
+});
+$('.featlist>li:nth-of-type(2)').click(function(){
+  $('.home').hide("");
+  $('.checkstatus').hide("");
+  $('.feedbackpg').hide("");
+  $('.regcomp').show("");
+});
+$('.featlist>li:nth-of-type(3)').click(function(){
+  $('.regcomp').hide("");
+  $('.home').hide("");
+  $('.feedbackpg').hide("");
+  $('.checkstatus').show("");
+});
+$('.featlist>li:nth-of-type(4)').click(function(){
+  $('.regcomp').hide("");
+  $('.checkstatus').hide("");
+  $('.home').hide("");
+  $('.feedbackpg').show("");
+});

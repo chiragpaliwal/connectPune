@@ -16,7 +16,7 @@ app.listen('3000', function(){
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/assets')));
 
 app.use(cookieSession({
     maxAge: 24*60*60*1000,
@@ -38,5 +38,5 @@ app.use('/profile', profileRoutes);
 
 //Home Route
 app.get('/', function (req, res) {
-    res.render('index', {title: 'Home', user: req.user});
+    res.redirect('/auth/login');
 });
