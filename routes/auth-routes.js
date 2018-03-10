@@ -17,7 +17,10 @@ router.get('/logout', function(req, res){
 
 //Auth with Google
 router.get('/google', passport.authenticate('google', {
-    scope: ['profile']
+    scope: [
+        'https://www.googleapis.com/auth/userinfo.profile',
+        'https://www.googleapis.com/auth/userinfo.email'
+    ]
 }));
 
 //calback route for google

@@ -32,6 +32,13 @@ mongoose.connect(keys.mongodb.dbURI, function(){
     console.log('Connected to mongodb');
 });
 
+const db = mongoose.connection;
+
+//Check db errors
+db.on('error', function(err){
+    console.log(err);
+});
+
 //Setup routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
