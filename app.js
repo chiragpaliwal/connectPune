@@ -8,6 +8,9 @@ const passportSetup = require('./config/passport-setup');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
+const flash = require('connect-flash');
+const morgan = require('morgan');
 
 app.listen('3000', function(){
     console.log('Server started on port 3000');
@@ -18,6 +21,9 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public/assets')));
 
+app.use(morgan('dev')); // log every request to the console
+app.use(bodyParser()); // get information from html forms
+
 app.use(cookieSession({
     maxAge: 24*60*60*1000,
     keys: [keys.session.cookieKey]
@@ -26,6 +32,8 @@ app.use(cookieSession({
 //init passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 //Connect mongodb
 mongoose.connect(keys.mongodb.dbURI, function(){
@@ -38,6 +46,12 @@ const db = mongoose.connection;
 db.on('error', function(err){
     console.log(err);
 });
+
+// Body Parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 //Setup routes
 app.use('/auth', authRoutes);
