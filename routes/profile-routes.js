@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bodyParser = require('body-parser');
 
 const authCheck = function(req, res, next){
     if(!req.user){
@@ -12,6 +13,11 @@ const authCheck = function(req, res, next){
 
 router.get('/',authCheck, function(req, res){
     res.render('profile', {user: req.user, title: 'Profile'});
+});
+
+//POST for feedback
+router.post('/feedback', function(){
+
 });
 
 module.exports = router;

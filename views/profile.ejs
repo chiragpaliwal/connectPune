@@ -28,7 +28,7 @@
 
 		<div class="regcomp">
 		<h1>Register Complaint</h1>
-
+		<form action="/profile/complaint" method="POST">
 		<div class="regsubmit">
 		  <div class="form-group">
 			<h1>Please Fill The Form</h1>
@@ -42,6 +42,7 @@
 			<button type="submit" name="complaint">Send</button>
 			</div>
 		</div>
+		</form>
 		</div>
 
 		<div class="checkstatus">
@@ -55,15 +56,18 @@
 		  </div>
 		</div>
 
+
 		<div class="feedbackpg">
 		  <h1>Feedback</h1>
 		  <div class="feedbackform">
 			<h1>Enter Your Feedback Here</h1>
+			<form action="/profile/feedback">
 			<div>
-			<input type="text" name="" value="" placeholder="e-mail address"></input>
-			<textarea name="complaintsum" rows="8" cols="80" class="txtarea"></textarea>
+			<input type="text" name="email" value="" placeholder="e-mail address"></input>
+			<textarea name="body" rows="8" cols="80" class="txtarea"></textarea>
 			<button type="submit" name="button">Send</button>
-		  </div>
+			</div>
+		</form>
 		  </div>
 		</div>
 
