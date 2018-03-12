@@ -10,7 +10,7 @@ body{
   width: 100%;
 }
 .leftdiv{
-  background: #292d52;
+  background: #0F161F;
   height: 100vh;
   min-width: 300px;
   width: 20%;
@@ -71,7 +71,7 @@ body{
 .rightdiv{
   padding-left: 30px;
   padding-right: 30px;
-  background: #79C99E;
+  background: #0DAB76;
 }
 .home>h1,.regcomp>h1,.checkstatus>h1,.feedbackpg>h1{
   font-size: 40px;
