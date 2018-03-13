@@ -28,7 +28,7 @@
 		  <h1>Home</h1>
 		  <div>
 				<% if (message.length > 0) { %>
-					<div class="alert alert-danger"><p><%= message %></p></div>
+					<div><p><%= message %></p></div>
 				<% } %>
 		  <div class="charts">
         <div class="">
@@ -49,17 +49,39 @@
 		<div class="regsubmit">
 		  <div class="form-group">
 			<h1>Please Fill The Form</h1>
-      <form>
-			<label for=""></label>
-			<input type="text" class="form-control" id="" placeholder="">
-			<input type="text" class="form-control" id="" placeholder="">
-			<input type="text" class="form-control" id="" placeholder="">
-			<input type="text" class="form-control" id="" placeholder="">
-			<textarea name="complaintsum" rows="8" cols="80" class="txtarea"></textarea>
-
+        <form action="/profile/complaint" method="POST">
+			<label for="">Complaint Category: </label>
+            <select name="complaintCategory" id="">
+                <option value="null" selected="selected">Choose One</option>
+                <option value="Bhavan Rachna Department">Bhavan Rachna Department</option>
+                <option value="Birth and Death">Birth and Death</option>
+                <option value="Building Permission">Building Permission</option>
+                <option value="City Engineer">City Engineer</option>
+                <option value="Development Planning">Development Planning</option>
+                <option value="Drainage">Drainage</option>
+                <option value="Education">Education</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Encroachment">Encroachment</option>
+                <option value="Garbage">Garbage (SWM)</option>
+                <option value="Garden">Garden</option>
+                <option value="Health">Health</option>
+                <option value="Health Kitak">Health Kitak</option>
+                <option value="License Skyline">License Skyline</option>
+                <option value="Noise Pollution">Noise Pollution</option>
+                <option value="Property Tax">Property Tax</option>
+                <option value="Pune Smart City">Pune Smart City (PSCDCL)</option>
+                <option value="Road">Road</option>
+                <option value="Slum">Slum</option>
+                <option value="Other">Other</option>
+            </select>
+            <label for="">Complaint Description:</label>
+            <textarea name="complaintDesc" rows="4" cols="80" class="txtarea"></textarea>
+            <p>Complaint by: <%= user.username %></p>
+            <label for="">Location:</label>
+            <textarea name="complaintLoc" rows="2" cols="40" class="txtarea"></textarea>
 			<button type="submit" name="complaint">Send</button>
-    </form>
-      </div>
+        </form>
+        </div>
 		</div>
 		</form>
 		</div>
@@ -83,7 +105,7 @@
 		  <div class="feedbackform">
 			<h1>Enter Your Feedback Here</h1>
 			<div>
-      <form action="/profile/feedback" method="POSt">
+        <form action="/profile/feedback" method="POSt">
 			<input type="text" name="email" value="" placeholder="e-mail address"></input>
 			<textarea name="body" rows="8" cols="80" class="txtarea"></textarea>
 			<button type="submit" name="button">Send</button>
