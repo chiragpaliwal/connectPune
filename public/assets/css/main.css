@@ -116,3 +116,9 @@ button{
   border-radius: 10px;
   padding: 4px;
 }
+.charts{
+  width: 300px !important;
+  height: 300px !important;
+  background: #064b34;
+  color: #eee;
+}
