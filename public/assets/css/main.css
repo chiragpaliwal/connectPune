@@ -116,9 +116,25 @@ button{
   border-radius: 10px;
   padding: 4px;
 }
-.charts{
+.charts>div{
   width: 300px !important;
   height: 300px !important;
   background: #064b34;
+  border-radius: 16px;
   color: #eee;
+}
+.charts>div:nth-of-type(2){
+  width: 400px !important;
+  height: 100% !important;
+}
+.charts>div>h1{
+  background: #064b34;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+.charts{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
 }

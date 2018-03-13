@@ -22,7 +22,14 @@
 		<div class="home">
 		  <h1>Home</h1>
 		  <div class="charts">
+        <div class="">
       <canvas id="chart1" width="300" height="300"></canvas>
+      <h1>Grievance</h1>
+    </div>
+    <div class="">
+      <canvas id="chart2" width="300" height="300"></canvas>
+      <h1>Citizens Registered</h1>
+    </div>
 		  </div>
 		</div>
 
@@ -83,6 +90,7 @@
 <script src="../js/script.js"></script>
 <script type="text/javascript">
 var ctx = document.getElementById("chart1");
+var ctx1 = document.getElementById("chart2");
 ctx.height= 300;
 ctx.width = 300;
 var myChart = new Chart(ctx, {
@@ -102,9 +110,41 @@ var myChart = new Chart(ctx, {
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 3
         }]
     },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+var myChart1 = new Chart(ctx1, {
+    type: 'line',
+    data: {
+        labels: ["Jan", "Feb", "Mar", "Apr"],
+        datasets: [{
+            label: 'Number Of Citizens Registered',
+            data: [10, 30, 18, 20],
+            backgroundColor: [
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            fill:false,
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 3
+        }]
+    },
+
     options: {
         scales: {
             yAxes: [{
