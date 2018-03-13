@@ -15,12 +15,17 @@ body{
   min-width: 300px;
   width: 20%;
   border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 .rightdiv{
   background: #eee;
   height: 100vh;
   width: 80%;
   border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.leftdiv,.rightdiv{
+  height: 96vh;
 }
 .userprof{
   margin: 0 auto;
@@ -136,5 +141,4 @@ button{
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
