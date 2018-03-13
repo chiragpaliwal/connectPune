@@ -15,12 +15,17 @@ body{
   min-width: 300px;
   width: 20%;
   border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 .rightdiv{
   background: #eee;
   height: 100vh;
   width: 80%;
   border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.leftdiv,.rightdiv{
+  height: 96vh;
 }
 .userprof{
   margin: 0 auto;
@@ -115,4 +120,25 @@ button{
   font-size: 18px;
   border-radius: 10px;
   padding: 4px;
+}
+.charts>div{
+  width: 300px !important;
+  height: 300px !important;
+  background: #064b34;
+  border-radius: 16px;
+  color: #eee;
+}
+.charts>div:nth-of-type(2){
+  width: 400px !important;
+  height: 100% !important;
+}
+.charts>div>h1{
+  background: #064b34;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+.charts{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
