@@ -22,7 +22,9 @@
 		<div class="home">
 		  <h1>Home</h1>
 		  <div>
-
+				<% if (message.length > 0) { %>
+					<div class="alert alert-danger"><p><%= message %></p></div>
+				<% } %>
 		  </div>
 		</div>
 
@@ -32,6 +34,7 @@
 		<div class="regsubmit">
 		  <div class="form-group">
 			<h1>Please Fill The Form</h1>
+      <form>
 			<label for=""></label>
 			<input type="text" class="form-control" id="" placeholder="">
 			<input type="text" class="form-control" id="" placeholder="">
@@ -40,7 +43,8 @@
 			<textarea name="complaintsum" rows="8" cols="80" class="txtarea"></textarea>
 
 			<button type="submit" name="complaint">Send</button>
-			</div>
+    </form>
+      </div>
 		</div>
 		</form>
 		</div>
@@ -50,8 +54,10 @@
 		  <div class="checkquery">
 			<div class="">
 			  <h1>Enter Token Number</h1>
-			  <input type="text" name="" value="" placeholder="Token no."></input>
+        <form>
+        <input type="text" name="" value="" placeholder="Token no."></input>
 			  <button type="submit" name="checkstatus">Check</button>
+      </form>
 			</div>
 		  </div>
 		</div>
@@ -61,13 +67,13 @@
 		  <h1>Feedback</h1>
 		  <div class="feedbackform">
 			<h1>Enter Your Feedback Here</h1>
-			<form action="/profile/feedback">
 			<div>
+      <form action="/profile/feedback" method="POSt">
 			<input type="text" name="email" value="" placeholder="e-mail address"></input>
 			<textarea name="body" rows="8" cols="80" class="txtarea"></textarea>
 			<button type="submit" name="button">Send</button>
-			</div>
-		</form>
+    	</form>
+		  </div>
 		  </div>
 		</div>
 

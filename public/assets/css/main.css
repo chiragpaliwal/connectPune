@@ -52,7 +52,9 @@ body{
 .featlist>li:hover{
   color:#f97459;
 }
-
+.logoutbtn{
+  margin-top: 50px;
+}
 .logoutbtn>a{
   text-align: center;
   font-size: 20px;
@@ -78,18 +80,9 @@ body{
   border-bottom: 2px solid #f97459;
   display: inline-block;
 }
-.home{
-  display: none;
-}
-.regcomp{
+.regcomp,.feedbackpg,.checkstatus{
   display: none;
   /* background: #036AD2; */
-}
-.checkstatus{
-  display: none;
-}
-.feedbackpg{
-  display: none;
 }
 .checkquery,.regsubmit,.feedbackform{
   display: flex;
@@ -98,7 +91,7 @@ body{
   /* align-content: center; */
   /* justify-content: center; */
 }
-.regsubmit>div>input{
+form>input{
   display: block;
   margin-bottom: 20px;
 }
