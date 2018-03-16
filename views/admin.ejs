@@ -1,0 +1,54 @@
+<% include partials/header.ejs %>
+<link rel="stylesheet" href="../css/main.css">
+  </head>
+  <body>
+
+	<div class="container">
+		<div class="leftdiv">
+		  <div class="userprof">
+              <% if(user.thumbnail) { %>
+                <img src=" <%= user.thumbnail %>" alt="">  
+                <%     }else{%> 
+                <img src="../img/user.JPG" alt=""> 
+                <% } %>   
+			
+			<h1 id="username"><%= user.username %></h1>
+		  </div>
+		  <ul class="featlist">
+                <li>Home</li>
+				<div class="logoutbtn"><a href="/auth/logout">Logout</a></div>
+			</ul>
+		</div>
+		<div class="rightdiv">
+
+		<div class="home">
+        <h1>Home</h1>
+		<div>
+            <table>
+                <caption>Complaints</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Location</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% complaint.forEach(function (comp) { %>
+                        <tr>
+                            <th scope="col"><%= comp.complaintCategory%></th>
+                            <th scope="col"><%= comp.desc%></th>
+                            <th scope="col"><%= comp.location%></th>
+                        </tr>
+                    <% }) %>
+                </tbody>
+              </table>
+        </div>
+        </div>
+	    </div>
+
+</body>
+<script type="text/javascript" src="../js/Chart.min.js"></script>
+<script src="../js/jq.min.js"></script>
+<script src="../js/script.js"></script>
+<% include partials/footer.ejs %>

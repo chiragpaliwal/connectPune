@@ -11,6 +11,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const morgan = require('morgan');
+const multer = require('multer');
 
 app.listen('3000', function(){
     console.log('Server started on port 3000');

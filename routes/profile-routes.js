@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const bodyParser = require('body-parser');
+const path = require('path');
+const multer = require('multer');
 
 //Models
 let Feedback = require('../models/feedback-model');
@@ -16,7 +18,13 @@ const authCheck = function(req, res, next){
 }
 
 router.get('/',authCheck, function(req, res){
-    res.render('profile', {user: req.user, title: 'Profile', message: ''});
+    if(req.user.email==='admin@admin.com'){
+        Complaint.find({}, function(err, data){
+            res.render('admin', {user:req.user, title: 'Admin', complaint: data});
+        });
+    }else{
+        res.render('profile', {user: req.user, title: 'Profile', message: ''});
+    }
 });
 
 
@@ -40,14 +48,42 @@ router.post('/complaint', function(req, res){
     complaint.complaintCategory = req.body.complaintCategory;
     complaint.desc = req.body.complaintDesc;
     complaint.location = req.body.complaintLoc;
-
+    upload(req, res, function(err){
+        if(err){
+            console.log(err);
+        }
+    });
     complaint.save(function(err){
         if(err){
             console.log(err);
         }else{
             res.render('profile', {user: req.user, title: 'Profile', message: 'Comlpaint Submitted!'});
         }
-    })
+    });
 });
+
+
+//File Uploads
+
+//Set storage engine
+const storage = multer.diskStorage({
+    destination: './public/uploads',
+    filename: function(req, file, cb){
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+});
+
+//init upload
+const upload = multer({
+    storage: storage
+}).single('uploadImg');
+
+// router.post('/upload', function(req, res){
+//     upload(req, res, function(err){
+//         if(err){
+//             console.log(err);
+//         }
+//     });
+// });
 
 module.exports = router;
